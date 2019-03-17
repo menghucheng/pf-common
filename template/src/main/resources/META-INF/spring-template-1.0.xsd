@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://mhc.test.com/schema/template"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://mhc.test.com/schema/template"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <!--引入spring beans\tools 的schema-->
+    <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+
+
+    <xsd:element name="template" type="TTemplates"/>
+
+    <!--TemplatesType定义-->
+    <xsd:complexType name="TTemplates">
+        <xsd:sequence>
+            <xsd:element name="processes" type="Processes" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" use="required"/>
+        <xsd:attribute name="desc" type="xsd:string"/>
+    </xsd:complexType>
+
+    <!--Processes定义-->
+    <xsd:complexType name="Processes">
+        <xsd:sequence>
+            <xsd:element name="action" type="Action" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+        <xsd:attribute name="desc" type="xsd:string"/>
+    </xsd:complexType>
+
+    <!--Action定义-->
+    <xsd:complexType name="Action">
+        <xsd:attribute name="ref" type="xsd:ID" use="required"/>
+        <xsd:attribute name="desc" type="xsd:string"/>
+    </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tp="http://mhc.test.com/schema/template"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://mhc.test.com/schema/template http://mhc.test.com/schema/template/spring-template-1.0.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       default-autowire="byName">
+
+
+    <bean id="sayHello" class="com.mhc.template.action.SayHello"/>
+    <bean id="sayWa" class="com.mhc.template.action.SayWa"/>
+    <bean id="jump" class="com.mhc.template.action.Jump"/>
+    <!--若运行报错，找不到tp的定义 请务必检查spring.handlers、spring.schemas两个文件是否在MET-INF目录下，这个问题找了大半天！！！-->
+
+    <tp:template id="mhcSay" desc="mhc say something">
+        <tp:processes id="hello" desc="first step">
+            <tp:action ref="sayHello" desc="sayHello"/>
+            <tp:action ref="sayWa" desc="saywa"/>
+            <tp:action ref="jump" desc="jump"/>
+        </tp:processes>
+    </tp:template>
+
+
+</beans>
