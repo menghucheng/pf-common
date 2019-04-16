@@ -10,6 +10,8 @@ import com.mhc.model.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
 import static org.mockito.Mockito.*;
 
 /**
@@ -32,14 +34,17 @@ public class mockTest {
     @Before
     public void setUp(){
         user = new User("mhc",18);
+        MockitoAnnotations.initMocks(this);
     }
 
     @Test
     public void tesMock(){
-        dalService = new DalServiceImpl();
-        dalService.say(user);
+        dalService = spy(new DalServiceImpl());
+//        dalService.say(user);
         when(dalService.say(user)).thenReturn("Hello mock");
-//        verify(dalService).say(user);
+
+        doReturn("aaaa").when(dalService).say(user);
+        verify(dalService).say(user);
     }
 
 

@@ -19,7 +19,7 @@ import java.util.Date;
  */
 public class DateUtil {
 
-    public static final String SHORT_DATE = "yyyyMMdd";
+    private static final String SHORT_DATE = "yyyy-MM-dd HH:mm:ss";
 
 
     /**

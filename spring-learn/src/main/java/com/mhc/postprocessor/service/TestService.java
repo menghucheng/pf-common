@@ -5,6 +5,7 @@
  */
 package com.mhc.postprocessor.service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.mhc.postprocessor.dal.TestDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Component;
  * @date       ：11:41 PM 2019/3/26
  *
  */
-@Component
+@org.springframework.stereotype.Service
 public class TestService {
 
     /**
